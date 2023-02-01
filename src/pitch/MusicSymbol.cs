@@ -1,9 +1,8 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace PitchConverter.Pitch
 {
-    internal class MusicSymbol
+    public class MusicSymbol
     {
         [Range(-1, 11,
             ErrorMessage = "Value for {0} must be between {1} and {2}.")]
@@ -12,12 +11,12 @@ namespace PitchConverter.Pitch
             ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         private int _octave;
 
-        public MusicSymbol()
+        internal MusicSymbol()
         {
             _pitchClass = -1;
         }
 
-        public MusicSymbol(int pitchClass, int octave)
+        internal MusicSymbol(int pitchClass, int octave)
         {
             _pitchClass = pitchClass;
             _octave = octave;
