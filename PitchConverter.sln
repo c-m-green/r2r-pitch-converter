@@ -9,18 +9,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PitchConverterTest", "test\
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{51DD5111-8B9F-436B-90D4-55C4D6691CAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{51DD5111-8B9F-436B-90D4-55C4D6691CAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{51DD5111-8B9F-436B-90D4-55C4D6691CAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{51DD5111-8B9F-436B-90D4-55C4D6691CAB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D502603F-B563-4E23-9621-BEE3A5372444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D502603F-B563-4E23-9621-BEE3A5372444}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D502603F-B563-4E23-9621-BEE3A5372444}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D502603F-B563-4E23-9621-BEE3A5372444}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51DD5111-8B9F-436B-90D4-55C4D6691CAB}.Debug|x64.ActiveCfg = Debug|x64
+		{51DD5111-8B9F-436B-90D4-55C4D6691CAB}.Debug|x64.Build.0 = Debug|x64
+		{51DD5111-8B9F-436B-90D4-55C4D6691CAB}.Release|x64.ActiveCfg = Release|x64
+		{51DD5111-8B9F-436B-90D4-55C4D6691CAB}.Release|x64.Build.0 = Release|x64
+		{D502603F-B563-4E23-9621-BEE3A5372444}.Debug|x64.ActiveCfg = Debug|x64
+		{D502603F-B563-4E23-9621-BEE3A5372444}.Debug|x64.Build.0 = Debug|x64
+		{D502603F-B563-4E23-9621-BEE3A5372444}.Release|x64.ActiveCfg = Release|x64
+		{D502603F-B563-4E23-9621-BEE3A5372444}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
