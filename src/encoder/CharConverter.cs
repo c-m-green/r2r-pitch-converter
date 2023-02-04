@@ -4,34 +4,19 @@ namespace PitchConverter.Encoder
 {
     internal class CharConverter
     {
-        public static MusicSymbol LetterToPitchLiteral(char ch, int octaveStart, bool useGermanH)
+        public static MusicSymbol CharToPitch(char ch, string pitchClasses, int octaveStart, bool allowNumbers)
         {
-            if (!char.IsLetter(ch))
-            { // if non-letter is passed in
+            if (!char.IsLetterOrDigit(ch) ||
+                !allowNumbers && char.IsNumber(ch))
+            {
                 return new MusicSymbol();
             }
-            else
+            else if (char.IsLetter(ch))
             {
-                // TODO: Remove diacritics from text
-                char cIn = char.ToUpper(ch);
-                string pitchClasses = useGermanH ? PitchConstants.GermanHPitchClasses : PitchConstants.NonGermanHPitchClasses;
-                int charValue = FindCharValue(cIn);
-                return ObtainPitch(pitchClasses, charValue, octaveStart);
+                ch = char.ToUpper(ch);
             }
-        }
-
-        public static MusicSymbol AlphaNumToPitchDegree(char ch, int octaveStart, bool isChromatic)
-        {
-            if (!char.IsLetterOrDigit(ch))
-            { // if non-alphanumeric character is passed in
-                return new MusicSymbol();
-            }
-            else
-            {
-                string pitchClasses = (isChromatic) ? PitchConstants.ChromaticPitchClasses : PitchConstants.NonChromaticPitchClasses;
-                int charValue = FindCharValue(ch);
-                return ObtainPitch(pitchClasses, charValue, octaveStart);
-            }
+            int charValue = FindCharValue(ch);
+            return ObtainPitch(pitchClasses, charValue, octaveStart);
         }
 
         private static int FindCharValue(char c)

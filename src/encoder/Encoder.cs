@@ -1,16 +1,37 @@
-﻿namespace PitchConverter.Encoder
-{
-    public class Encoder
-    {
-        public bool UseGermanH { get; set; }
-        public bool UseChromaticScale { get; set; }
-        public bool StripNonPitchLetters { get; set; }
-        public bool IncludeRests { get; set; }
+﻿using PitchConverter.Pitch;
 
-        public Encoder() { }
-        public string GetTestMessage()
+namespace PitchConverter.Encoder
+{
+    public abstract class Encoder
+    {
+        private protected string _pitchClasses;
+        public int StartOctave { get; set; }
+        public bool IncludeRests { get; set; }
+        public OutputFormat Format { get; init; }
+
+        public Encoder(OutputFormat format)
         {
-            return "Hello, Read2Read app!";
+            _pitchClasses = PitchConstants.PitchClassSets.NonChromaticPitchClasses;
+            StartOctave = 4;
+            IncludeRests = true;
+            Format = format;
         }
+
+        public abstract List<MusicSymbol> Encode(string input);
+
+        public virtual void EncodeToFile(string input, OutputFormat outputFormat)
+        {
+            List<MusicSymbol> music = Encode(input);
+            // Do file writing here
+            throw new NotImplementedException();
+        }
+
+        public enum OutputFormat
+        {
+            Text,
+            Midi,
+            MusicXml
+        }
+
     }
 }
