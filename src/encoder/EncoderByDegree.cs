@@ -1,6 +1,6 @@
 using PitchConverter.Pitch;
 
-namespace PitchConverter.Encoder
+namespace PitchConverter.Encoder.Impl
 {
     public class EncoderByDegree : Encoder
     {

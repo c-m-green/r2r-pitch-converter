@@ -1,7 +1,7 @@
 using PitchConverter.Pitch;
 using System.Text;
 
-namespace PitchConverter.Encoder
+namespace PitchConverter.Encoder.Impl
 {
     public class EncoderByLetter : Encoder
     {
