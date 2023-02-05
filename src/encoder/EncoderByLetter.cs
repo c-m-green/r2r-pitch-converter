@@ -10,25 +10,17 @@ namespace PitchConverter.Encoder.Impl
 
         public EncoderByLetter(OutputFormat format) : base(format)
         {
+            _allowNumbers = false;
             OmitNonPitchLetters = false;
             SetGermanH(false);
         }
 
         public override List<MusicSymbol> Encode(string input)
         {
-            List<MusicSymbol> music = new();
             string strToConvert = OmitNonPitchLetters ?
                 StripNonPitchLetters(input, UseGermanH ? "ABCDEFGH" : "ABCDEFG")
                 : input;
-            for (int i = 0; i < strToConvert.Length; i++)
-            {
-                MusicSymbol ms = CharConverter.CharToPitch(strToConvert[i], _pitchClasses, StartOctave, false);
-                if (IncludeRests || ms.GetPitchClass() != -1)
-                {
-                    music.Add(ms);
-                }
-            }
-            return music;
+            return base.Encode(strToConvert);
         }
 
         private static string StripNonPitchLetters(string input, string pitchLetters)
@@ -44,8 +36,6 @@ namespace PitchConverter.Encoder.Impl
                 }
             }
             return output.ToString();
-
-
         }
 
         public void SetGermanH(bool useGermanH)

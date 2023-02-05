@@ -11,20 +11,6 @@ namespace PitchConverter.Encoder.Impl
             SetUseChromaticScale(false);
         }
 
-        public override List<MusicSymbol> Encode(string input)
-        {
-            List<MusicSymbol> music = new();
-            for (int i = 0; i < input.Length; i++)
-            {
-                MusicSymbol ms = CharConverter.CharToPitch(input[i], _pitchClasses, StartOctave, true);
-                if (IncludeRests || ms.GetPitchClass() != -1)
-                {
-                    music.Add(ms);
-                }
-            }
-            return music;
-        }
-
         public void SetUseChromaticScale(bool useChromaticScale)
         {
             UseChromaticScale = useChromaticScale;
