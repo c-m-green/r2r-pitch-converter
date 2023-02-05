@@ -11,10 +11,6 @@ namespace PitchConverter.Encoder
             {
                 return new MusicSymbol();
             }
-            else if (char.IsLetter(ch))
-            {
-                ch = char.ToUpper(ch);
-            }
             int charValue = FindCharValue(ch);
             return ObtainPitch(pitchClasses, charValue, octaveStart);
         }
@@ -41,12 +37,19 @@ namespace PitchConverter.Encoder
             {
                 return new MusicSymbol();
             }
-            else
+            int pitchIndex = charValue % pitchClasses.Length;
+            int register = charValue / pitchClasses.Length + registerStart;
+            int pitch = (int)char.GetNumericValue(pitchClasses, pitchIndex);
+            if (pitch == -1)
             {
-                int pitchIndex = charValue % pitchClasses.Length;
-                int register = charValue / pitchClasses.Length + registerStart;
-                return new MusicSymbol(pitchClasses[pitchIndex], register);
+                pitch = pitchClasses[pitchIndex] switch
+                {
+                    't' => 10,
+                    'e' => 11,
+                    _ => throw new ArgumentException(pitchIndex.ToString()),
+                };
             }
+            return new MusicSymbol(pitch, register);
         }
     }
 }
