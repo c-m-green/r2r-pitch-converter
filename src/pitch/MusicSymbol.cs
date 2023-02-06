@@ -49,5 +49,10 @@ namespace PitchConverter.Pitch
                 _octave = Math.Max(_octave, PitchConstants.MinOctave);
             }
         }
+
+        public override string ToString()
+        {
+            return $"{GetPitchClass()}:{GetOctave()}";
+        }
     }
 }
