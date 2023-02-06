@@ -33,7 +33,7 @@ namespace PitchConverter.Encoder
             return music;
         }
 
-        public void EncodeToFile(string input, OutputFormat outputFormat)
+        public void EncodeToFile(string input)
         {
             List<MusicSymbol> music = Encode(input);
             // Do file writing here
