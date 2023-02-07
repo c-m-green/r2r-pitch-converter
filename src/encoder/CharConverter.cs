@@ -26,7 +26,7 @@ namespace PitchConverter.Encoder
             }
             else if (char.IsDigit(input))
             {
-                charValue = input - 0;
+                charValue = input - '0';
             }
             return charValue;
         }
