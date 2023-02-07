@@ -66,7 +66,7 @@ namespace PitchConverterTest
             {
                 yield return new EncoderTestInput("Aa Bb Cc Dd Ee", new int[] { 0, 0, -1, 2, 2, -1, 4, 4, -1, 5, 5, -1, 7, 7 }, new int[] { 4, 4, 0, 4, 4, 0, 4, 4, 0, 4, 4, 0, 4, 4 });
                 yield return new EncoderTestInput("Abc123", new int[] { 0, 2, 4, 2, 4, 5 }, new int[] { 4, 4, 4, 4, 4, 4 });
-                yield return new EncoderTestInput("EFGHI efghi ", new int[] { 7, 9, 11, 0, 2, -1, 7, 9, 11, 0, 2 }, new int[] { 4, 4, 4, 5, 5, 0, 4, 4, 4, 5, 5 });
+                yield return new EncoderTestInput("EFGHI efghi ", new int[] { 7, 9, 11, 0, 2, -1, 7, 9, 11, 0, 2, -1 }, new int[] { 4, 4, 4, 5, 5, 0, 4, 4, 4, 5, 5, 0 });
                 yield return new EncoderTestInput("/Q! S? ^ $.", new int[] { -1, 4, -1, -1, 7, -1, -1, -1, -1, -1, -1 }, new int[] { 0, 6, 0, 0, 6, 0, 0, 0, 0, 0, 0 });
             }
             else
