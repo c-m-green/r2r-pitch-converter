@@ -1,14 +1,8 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace PitchConverter.Pitch
 {
     public class MusicSymbol
     {
-        [Range(-1, 11,
-            ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         private int _pitchClass;
-        [Range(PitchConstants.MinOctave, PitchConstants.MaxOctave,
-            ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         private int _octave;
 
         internal MusicSymbol()
@@ -18,8 +12,14 @@ namespace PitchConverter.Pitch
 
         internal MusicSymbol(int pitchClass, int octave)
         {
+            if (pitchClass < -1 || pitchClass > 11)
+            {
+                throw new ArgumentOutOfRangeException($"{pitchClass} is not a valid pitch class value");
+            }
             _pitchClass = pitchClass;
             _octave = octave;
+            _octave = Math.Min(_octave, PitchConstants.MaxOctave);
+            _octave = Math.Max(_octave, PitchConstants.MinOctave);
         }
 
         public int GetPitchClass()
@@ -48,6 +48,11 @@ namespace PitchConverter.Pitch
                 _octave = Math.Min(_octave, PitchConstants.MaxOctave);
                 _octave = Math.Max(_octave, PitchConstants.MinOctave);
             }
+        }
+
+        public override string ToString()
+        {
+            return $"{GetPitchClass()}:{GetOctave()}";
         }
     }
 }
