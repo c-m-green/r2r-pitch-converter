@@ -62,19 +62,23 @@ namespace PitchConverterTest
 
         static IEnumerable<EncoderTestInput> TestInputsRests(bool includesRests)
         {
+            const string str1 = "Aa Bb Cc Dd Ee";
+            const string str2 = "Abc123";
+            const string str3 = "EFGHI efghi ";
+            const string str4 = "/Q! S? ^ $.";
             if (includesRests)
             {
-                yield return new EncoderTestInput("Aa Bb Cc Dd Ee", new int[] { 0, 0, -1, 2, 2, -1, 4, 4, -1, 5, 5, -1, 7, 7 }, new int[] { 4, 4, 0, 4, 4, 0, 4, 4, 0, 4, 4, 0, 4, 4 });
-                yield return new EncoderTestInput("Abc123", new int[] { 0, 2, 4, 2, 4, 5 }, new int[] { 4, 4, 4, 4, 4, 4 });
-                yield return new EncoderTestInput("EFGHI efghi ", new int[] { 7, 9, 11, 0, 2, -1, 7, 9, 11, 0, 2, -1 }, new int[] { 4, 4, 4, 5, 5, 0, 4, 4, 4, 5, 5, 0 });
-                yield return new EncoderTestInput("/Q! S? ^ $.", new int[] { -1, 4, -1, -1, 7, -1, -1, -1, -1, -1, -1 }, new int[] { 0, 6, 0, 0, 6, 0, 0, 0, 0, 0, 0 });
+                yield return new EncoderTestInput(str1, new int[] { 0, 0, -1, 2, 2, -1, 4, 4, -1, 5, 5, -1, 7, 7 }, new int[] { 4, 4, 0, 4, 4, 0, 4, 4, 0, 4, 4, 0, 4, 4 });
+                yield return new EncoderTestInput(str2, new int[] { 0, 2, 4, 2, 4, 5 }, new int[] { 4, 4, 4, 4, 4, 4 });
+                yield return new EncoderTestInput(str3, new int[] { 7, 9, 11, 0, 2, -1, 7, 9, 11, 0, 2, -1 }, new int[] { 4, 4, 4, 5, 5, 0, 4, 4, 4, 5, 5, 0 });
+                yield return new EncoderTestInput(str4, new int[] { -1, 4, -1, -1, 7, -1, -1, -1, -1, -1, -1 }, new int[] { 0, 6, 0, 0, 6, 0, 0, 0, 0, 0, 0 });
             }
             else
             {
-                yield return new EncoderTestInput("Aa Bb Cc Dd Ee", new int[] { 0, 0, 2, 2, 4, 4, 5, 5, 7, 7 }, new int[] { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 });
-                yield return new EncoderTestInput("Abc123", new int[] { 0, 2, 4, 2, 4, 5 }, new int[] { 4, 4, 4, 4, 4, 4 });
-                yield return new EncoderTestInput("EFGHI efghi ", new int[] { 7, 9, 11, 0, 2, 7, 9, 11, 0, 2 }, new int[] { 4, 4, 4, 5, 5, 4, 4, 4, 5, 5 });
-                yield return new EncoderTestInput("/Q! S? ^ $.", new int[] { 4, 7 }, new int[] { 6, 6 });
+                yield return new EncoderTestInput(str1, new int[] { 0, 0, 2, 2, 4, 4, 5, 5, 7, 7 }, new int[] { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 });
+                yield return new EncoderTestInput(str2, new int[] { 0, 2, 4, 2, 4, 5 }, new int[] { 4, 4, 4, 4, 4, 4 });
+                yield return new EncoderTestInput(str3, new int[] { 7, 9, 11, 0, 2, 7, 9, 11, 0, 2 }, new int[] { 4, 4, 4, 5, 5, 4, 4, 4, 5, 5 });
+                yield return new EncoderTestInput(str4, new int[] { 4, 7 }, new int[] { 6, 6 });
             }
         }
 
