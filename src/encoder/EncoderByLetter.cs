@@ -30,7 +30,7 @@ namespace PitchConverter.Encoder.Impl
             {
                 // TODO Remove diacritics from text
                 char ch = char.ToUpper(input[i]);
-                if (pitchLetters[ch] != -1 || ch == ' ')
+                if (pitchLetters.Contains(ch) || ch == ' ')
                 {
                     output.Append(ch);
                 }
