@@ -12,7 +12,7 @@ namespace PitchConverter.Encoder.Impl
         {
             _allowNumbers = false;
             OmitNonPitchLetters = false;
-            SetGermanH(false);
+            SetUseGermanH(false);
         }
 
         public override List<MusicSymbol> Encode(string input)
@@ -38,7 +38,7 @@ namespace PitchConverter.Encoder.Impl
             return output.ToString();
         }
 
-        public void SetGermanH(bool useGermanH)
+        public void SetUseGermanH(bool useGermanH)
         {
             UseGermanH = useGermanH;
             _pitchClasses = UseGermanH ? PitchConstants.PitchClassSets.GermanHPitchClasses
