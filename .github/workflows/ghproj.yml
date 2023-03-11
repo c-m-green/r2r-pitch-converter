@@ -1,0 +1,22 @@
+name: Add Issues to project
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  add-to-project:
+    name: Add issue to project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@0.4.1
+        with:
+          # You can target a project in a different organization
+          # to the issue
+          project-url: https://github.com/users/c-m-green/projects/2
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          # A comma-separated list of labels to use as a filter for issue to be added
+          # labeled: # optional
+          # The behavior of the labels filter, AND to match all labels, OR to match any label, NOT to exclude any listed label (default is OR)
+          # label-operator: # optional
